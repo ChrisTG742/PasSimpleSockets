@@ -11,7 +11,7 @@ var
 begin
   Sock := UDPSocket(stIPv4);
   try
-    SendStrTo(Sock, '127.0.0.1', 1337, 'Hello UDP');
+    SendStrTo(Sock, IN4Address('127.0.0.1'), 1337, 'Hello UDP');
     Msg := ReceiveStrFrom(Sock);
     WriteLn('Server at ', Msg.FromAddr.Address, ':', Msg.FromPort, ' answered: ', Msg.Data);
   finally
